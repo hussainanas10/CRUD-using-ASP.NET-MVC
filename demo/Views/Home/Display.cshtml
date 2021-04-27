@@ -1,0 +1,49 @@
+﻿@model List<demo.Model.Employe_de>
+@{
+    ViewBag.Title = "Display";
+}
+<div class="container pt-2">
+    <table id="myTable" class="table table-bordered" style="width:100%">
+        <thead class="table-dark">
+            <tr class="col">
+                <th>EmployeeID</th>
+                <th>Employee Name</th>
+                <th>Salary</th>
+                <th>Grade</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+
+<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+@section Scripts{
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                "ajax": {
+                    "url": "/Home/newdisplay",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "EmployeID" },
+                    { "data": "Name" },
+                    { "data": "Salary" },
+                    { "data": "Grade" },
+                    {
+                        "data": "ID", "width": "50px", "render": function (data) {
+                            
+                            return '<a class="btn btn-primary btn-block"  type="button" href="/Home/delete/' + data + '">Edit</a>';
+                            }
+                    }
+
+                ]
+            });
+        });
+    </script>
+}
