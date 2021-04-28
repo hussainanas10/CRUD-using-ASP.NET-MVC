@@ -53,13 +53,30 @@ namespace demo.Controllers
         {
             return View();
         }
+
         public ActionResult Delete(int id)
+        {
+            var item = obj.Employe_de.Where(a => a.ID == id).FirstOrDefault();
+            if (item != null)
+            {
+                return View(item);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+           
+        }
+
+        [HttpPost]
+        public ActionResult Delete_item(int id)
         {
             var res = obj.Employe_de.Where(x => x.ID == id).First();
             obj.Employe_de.Remove(res);
             obj.SaveChanges();
+            ViewBag.Messsage = "Record Delete Successfully";
             //var res = obj.Employe_de.ToList();
-            return Redirect("Display");
+            return RedirectToAction("Display");
         }
     }
 }
