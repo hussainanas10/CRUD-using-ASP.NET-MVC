@@ -1,6 +1,6 @@
 ﻿@model demo.Model.Employe_de
 
-<h2></h2>
+<h2 class="bg-danger">DELETE INFORMATION </h2>
 @using (Html.BeginForm("Delete_item", "home", FormMethod.Post, new { id = "popupForm" }))
 {
     @Html.HiddenFor(a => a.ID)

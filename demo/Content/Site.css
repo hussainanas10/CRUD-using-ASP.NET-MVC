@@ -5,13 +5,13 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 /* Reset Code */
-body {
+/*body {
     padding: 0;
     margin: 0;
     font-family: 'Dosis', sans-serif;
 }
 
-    body button,
+    body button,*/
     /* .btn,
 body a {
     transition: 0.5s all;
@@ -30,7 +30,7 @@ body button:hover {
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
 } */
-    body a:hover {
+    /*body a:hover {
         opacity: .8;
         text-decoration: none;
         transition: 0.5s all;
@@ -72,12 +72,12 @@ ol {
 
 ul {
     list-style-type: none;
-}
+}*/
 
 /* //Reset Code */
 
 /* colors code */
-.text-bl {
+/*.text-bl {
     color: #343a40;
 }
 
@@ -99,12 +99,12 @@ ul {
 
 .let {
     letter-spacing: 1px;
-}
+}*/
 
 /* //colors code */
 
 /* bottom-to-top */
-a.move-top {
+/*a.move-top {
     position: fixed;
     bottom: 3%;
     right: 2%;
@@ -123,29 +123,29 @@ a.move-top {
         color: #000;
         font-size: 26px;
         line-height: 30px;
-    }
+    }*/
 
 /* //bottom-to-top */
 
 /* header */
-header {
+/*header {
     background: #fff;
     border-bottom: 1px solid #e4e4e4;
     position: fixed;
     width: 100%;
     z-index: 999;
-}
+}*/
 
 /* navigation */
 /* CSS Document */
-.toggle-2,
+/*.toggle-2,
 .toggle,
 [id^=drop] {
     display: none;
-}
+}*/
 
 /* Giving a background-color to the nav container. */
-nav {
+/*nav {
     margin: 0;
     padding: 0;
 }
@@ -157,35 +157,35 @@ nav {
     font-size: 35px;
     color: #719cfe;
     text-shadow: 2px 5px 3px rgba(0, 0, 0, 0.06);
-}
+}*/
 
 /* Since we'll have the "ul li" "float:left"
  * we need to add a clear after the container. */
-nav:after {
+/*nav:after {
     content: "";
     display: table;
     clear: both;
-}
+}*/
 
 /* Removing padding, margin and "list-style" from the "ul",
  * and adding "position:reltive" */
-nav ul {
+/*nav ul {*/
     /* float: right; */
-    padding: 0;
+    /*padding: 0;
     margin: 0;
     list-style: none;
     position: relative;
-}
+}*/
 
     /* Positioning the navigation items inline */
-    nav ul li {
+    /*nav ul li {
         margin: 0px;
         display: inline-block;
         float: left;
-    }
+    }*/
 
 /* Styling the links */
-nav a {
+/*nav a {
     color: #000;
     text-transform: capitalize;
     font-weight: 400;
@@ -198,17 +198,17 @@ nav a {
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
-}
+}*/
 
     /* Background color change on Hover */
-    nav a:hover {
+    /*nav a:hover {
         color: #000;
         opacity: .8;
-    }
+    }*/
 
 /* Hide Dropdowns by Default
  * and giving it a position of absolute */
-nav ul ul {
+/*nav ul ul {
     display: none;
     position: absolute;
     top: 26px;
@@ -219,23 +219,23 @@ nav ul ul {
     -o-border-radius: 4px;
     -ms-border-radius: 4px;
     -moz-border-radius: 4px;
-    z-index: 9;
+    z-index: 9;*/
     /* has to be the same number as the "line-height" of "nav a" */
-    -webkit-box-shadow: 0px -1px 5px 0px rgba(143,143,143,0.72);
+    /*-webkit-box-shadow: 0px -1px 5px 0px rgba(143,143,143,0.72);
     -moz-box-shadow: 0px -1px 5px 0px rgba(143,143,143,0.72);
     box-shadow: 0px -1px 5px 0px rgba(143,143,143,0.72);
 }
 
     nav ul ul li a:hover {
-    }
+    }*/
 
 /* Display Dropdowns on Hover */
-nav ul li:hover > ul {
+/*nav ul li:hover > ul {
     display: inherit;
-}
+}*/
 
 /* Fisrt Tier Dropdown */
-nav ul ul li {
+/*nav ul ul li {
     width: 170px;
     float: none;
     display: list-item;
@@ -247,27 +247,27 @@ nav ul ul li {
         font-size: 14px;
         margin: 10px 0;
         letter-spacing: 1px;
-    }
+    }*/
 
 /* Second, Third and more Tiers	
  * We move the 2nd and 3rd etc tier dropdowns to the left
  * by the amount of the width of the first tier.
 */
-nav ul ul ul li {
+/*nav ul ul ul li {
     position: relative;
-    top: -60px;
+    top: -60px;*/
     /* has to be the same number as the "width" of "nav ul ul li" */
-    left: 170px;
-}
+    /*left: 170px;
+}*/
 
 /* Change ' +' in order to change the Dropdown symbol */
-li > a:only-child:after {
+/*li > a:only-child:after {
     content: '';
-}
+}*/
 
 /* Media Queries
 --------------------------------------------- */
-@media(max-width: 1280px) {
+/*@media(max-width: 1280px) {
     nav a {
         font-size: 14px;
     }
@@ -284,17 +284,17 @@ li > a:only-child:after {
 
     nav {
         margin: 0;
-    }
+    }*/
 
     /* Hide the navigation menu by default */
     /* Also hide the  */
-    .toggle + a,
+    /*.toggle + a,
     .menu {
         display: none;
-    }
+    }*/
 
     /* Stylinf the toggle lable */
-    .toggle {
+    /*.toggle {
         display: block;
         padding: 7px 12px;
         font-size: 15px;
@@ -338,10 +338,10 @@ li > a:only-child:after {
         -moz-transition: 0.5s all;
         -o-transition: 0.5s all;
         -ms-transition: 0.5s all;
-    }
+    }*/
 
     /* Display Dropdown when clicked on Parent Lable */
-    [id^=drop]:checked + ul {
+    /*[id^=drop]:checked + ul {
         display: block;
         padding: 15px 0;
         text-align: center;
@@ -350,10 +350,10 @@ li > a:only-child:after {
 
     nav ul {
         float: right;
-    }
+    }*/
 
         /* Change menu item's width to 100% */
-        nav ul li {
+        /*nav ul li {
             display: block;
             width: 100%;
         }
@@ -361,24 +361,24 @@ li > a:only-child:after {
         nav a:hover,
         nav ul ul ul a {
             background-color: transparent;
-        }
+        }*/
 
         /* Hide Dropdowns by Default */
-        nav ul ul {
+        /*nav ul ul {
             float: none;
             position: static;
-            color: #ffffff;
+            color: #ffffff;*/
             /* has to be the same number as the "line-height" of "nav a" */
-        }
+        /*}*/
 
             /* Hide menus on hover */
-            nav ul ul li:hover > ul,
+            /*nav ul ul li:hover > ul,
             nav ul li:hover > ul {
                 display: none;
-            }
+            }*/
 
             /* Fisrt Tier Dropdown */
-            nav ul ul li {
+            /*nav ul ul li {
                 display: block;
                 width: 100%;
                 padding: 0;
@@ -389,9 +389,9 @@ li > a:only-child:after {
                 }
 
             nav ul ul ul li {
-                position: static;
+                position: static;*/
                 /* has to be the same number as the "width" of "nav ul ul li" */
-            }
+            /*}
 
     .menu li.active a,
     .menu li a:hover {
@@ -417,10 +417,10 @@ li > a:only-child:after {
         display: block;
         width: 94%;
     }
-}
+}*/
 
 /* dropdown */
-#demo {
+/*#demo {
     margin: 10px 0 0px 0;
 }
 
@@ -516,14 +516,14 @@ li > a:only-child:after {
         #demo .content li:last-of-type {
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
-        }
+        }*/
 
 /* //dropdown */
 /* //navigation */
 /* //header */
 
 /* banner */
-.mian-content-wthree {
+/*.mian-content-wthree {
     background: url(../images/1.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
@@ -533,10 +533,10 @@ li > a:only-child:after {
     min-height: 50vw;
     position: relative;
     z-index: 1;
-}
+}*/
 
 /* banner text */
-.style-banner {
+/*.style-banner {
     padding-top: 18em;
     max-width: 800px;
 }
@@ -553,11 +553,11 @@ li > a:only-child:after {
     .style-banner p {
         font-size: 18px;
         letter-spacing: 4px;
-    }
+    }*/
 
 /* //banner text */
 /* form */
-.home-form-w3ls .form-control {
+/*.home-form-w3ls .form-control {
     font-size: 15px;
     border: none;
     -webkit-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.28);
@@ -594,13 +594,13 @@ li > a:only-child:after {
     -o-border-radius: 0;
     -ms-border-radius: 0;
     -moz-border-radius: 0;
-}
+}*/
 
 /* //form */
 /* //banner */
 
 /* bannner bottom */
-h3.title-w3 {
+/*h3.title-w3 {
     font-size: 42px;
     color: #719cfe;
 }
@@ -619,12 +619,12 @@ h3.title-sub {
 
     h3.title-sub span {
         display: block;
-    }
+    }*/
 
 /* //bannner bottom */
 
 /* what */
-.services {
+/*.services {
     background: url(../images/bg3.jpg) center no-repeat fixed;
     background-size: cover;
     -webkit-background-size: cover;
@@ -683,12 +683,12 @@ a.service-btn {
     a.service-btn:hover,
     .home-form-w3ls button:hover {
         letter-spacing: 2px;
-    }
+    }*/
 
 /* //what */
 
 /* courses */
-.place-w3 {
+/*.place-w3 {
     padding: 0 .5em;
 }
 
@@ -750,12 +750,12 @@ a.service-btn {
 .team-content h4 {
     font-size: 24px;
     font-weight: 600;
-}
+}*/
 
 /* //courses */
 
 /* testimonials */
-.clients {
+/*.clients {
     background: url(../images/bg2.jpg) no-repeat center fixed;
     background-size: cover;
     -webkit-background-size: cover;
@@ -777,12 +777,12 @@ a.service-btn {
     -o-border-radius: 50%;
     -ms-border-radius: 50%;
     -moz-border-radius: 50%;
-}
+}*/
 
 /* //testimonials */
 
 /* events */
-.card {
+/*.card {
     background-color: #eee;
     border: none;
     -webkit-box-shadow: 5px 6px 8px 0 rgba(56, 56, 56, 0.21);
@@ -814,12 +814,12 @@ h5.card-title a {
 
 .card-footer {
     background-color: #dee2e6;
-}
+}*/
 
 /* //events */
 
 /* stats */
-.middlesection-w3pvt {
+/*.middlesection-w3pvt {
     position: relative;
     background: #719cfe;
     margin-top: 8em !important;
@@ -842,12 +842,12 @@ h3.title-w3-2 {
     position: absolute;
     left: 7%;
     bottom: 0;
-}
+}*/
 
 /* //stats */
 
 /* gallery */
-.gal-img img {
+/*.gal-img img {
     padding: 10px;
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
@@ -865,10 +865,10 @@ h3.title-w3-2 {
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
-}
+}*/
 
 /* popup */
-.pop-overlay {
+/*.pop-overlay {
     position: fixed;
     top: 0px;
     bottom: 0;
@@ -926,13 +926,13 @@ h3.title-w3-2 {
 
         .popup .close:hover {
             color: #f14f5e;
-        }
+        }*/
 
 /* //popup */
 /* //gallery */
 
 /* apps */
-.apps_w3w3pvt {
+/*.apps_w3w3pvt {
     position: relative;
 }
 
@@ -977,12 +977,12 @@ ul.apps-lists li {
     .img-podi-w3ls span {
         font-size: 8em;
         color: #ff7f62;
-    }
+    }*/
 
 /* //apps */
 
 /* contact */
-.contact {
+/*.contact {
     background: url(../images/bg1.jpg) no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
@@ -1035,12 +1035,12 @@ ul.apps-lists li {
     transition: 0.5s all;
     font-weight: 600;
     cursor: pointer;
-}
+}*/
 
 /* //contact */
 
 /* inner banner */
-.inner-banner-w3ls {
+/*.inner-banner-w3ls {
     background: url(../images/agriculture-icon.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
@@ -1049,10 +1049,10 @@ ul.apps-lists li {
     -ms-background-size: cover;
     position: relative;
     z-index: 1;
-}
+}*/
 
 /* login */
-.modal-body {
+/*.modal-body {
     max-width: 600px;
     margin: 0 auto;
 }
@@ -1103,12 +1103,12 @@ button.button-style-w3 {
     p.dont-do a:hover,
     .text-style-w3ls:hover {
         color: #fff;
-    }
+    }*/
 
 /* //login */
 
 /* footer */
-footer {
+/*footer {
     background: #ff7f62;
 }
 
@@ -1126,10 +1126,10 @@ footer {
     letter-spacing: 1.5px;
     margin: 10px 0;
     font-weight: 400;
-}
+}*/
 
 /* logo */
-a.logo.text-wh {
+/*a.logo.text-wh {
     font-size: 44px;
 }
 
@@ -1139,12 +1139,12 @@ a.logo:hover {
 
 .copyright-w3ls {
     background: #191919;
-}
+}*/
 
 /* //logo */
 
 /* copyright */
-p.copy-right-grids {
+/*p.copy-right-grids {
     font-size: 14px;
     letter-spacing: 2px;
 }
@@ -1155,11 +1155,11 @@ p.copy-right-grids {
 
         p.copy-right-grids a:hover {
             color: #fff;
-        }
+        }*/
 
 /* //copyright */
 /* social-icons */
-.w3social-icons ul li {
+/*.w3social-icons ul li {
     display: inline-block;
 }
 
@@ -1180,13 +1180,13 @@ p.copy-right-grids {
             -webkit-box-shadow: 0px 0px 13px 2px #ff7f62;
             -moz-box-shadow: 0px 0px 13px 2px #ff7f62;
             box-shadow: 0px 0px 13px 2px #ff7f62;
-        }
+        }*/
 
 /* //social-icons */
 /* //footer */
 
 /* responsive */
-@media(max-width: 1680px) {
+/*@media(max-width: 1680px) {
     .style-banner {
         padding-top: 16em;
     }
@@ -1764,6 +1764,6 @@ p.copy-right-grids {
     .modal-body {
         padding: 0;
     }
-}
+}*/
 
 /* //responsive */

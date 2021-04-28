@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Display";
 }
-<div class="container pt-2">
+<div class="container pt-2 class="tablecontainer"">
     <table id="myTable" class="table table-bordered" style="width:100%">
         <thead class="table-dark">
             <tr class="col">
@@ -16,17 +16,30 @@
 
     </table>
 </div>
+function(data)=>{
+<div data-role="popup" id="'(@Url.Action("delete","Home")/"+data+")' data-theme="a" class="ui-corner-all">
+    }
+    <form>
+        <div style="padding:10px 20px;">
+            <h3>Please sign in</h3>
+            <label for="un" class="ui-hidden-accessible">Username:</label>
+            <input type="text" name="user" id="un" value="" placeholder="username" data-theme="a">
+            <label for="pw" class="ui-hidden-accessible">Password:</label>
+            <input type="password" name="pass" id="pw" value="" placeholder="password" data-theme="a">
+        </div>
+    </form>
+</div>
 
 
 <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
 
 
 @section Scripts{
-
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -44,58 +57,59 @@
                     {
                         "data": "ID", "width": "50px", "render": function (data) {
 
-                            return '<a class="btn btn-danger btn-block"  type="button" href="/Home/delete/' + data + '">Delete</a>';
+                            return '<a class=" btn btn-danger popup" href="/Home/delete/' + data + '" >Delete</a>';
                         }
                     }
 
                 ]
             });
-            $('.tablecontainer').on('click', 'a.popup', function (e) {
-                e.preventDefault();
-                OpenPopup($(this).attr('href'));
-            })
-            function OpenPopup(pageUrl) {
-                var $pageContent = $('<div/>');
-                $pageContent.load(pageUrl, function () {
-                    $('#popupForm', $pageContent).removeData('validator');
-                    $('#popupForm', $pageContent).removeData('unobtrusiveValidation');
-                    $.validator.unobtrusive.parse('form');
+            <a  data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-a" data-transition="pop">Sign in</a>
+            //$('.tablecontainer').on('click', 'a.popup', function (e) {
+            //    e.preventDefault();
+            //    OpenPopup($(this).attr('href'));
+            //})
+            //function OpenPopup(pageUrl) {
+            //    var $pageContent = $('<div/>');
+            //    $pageContent.load(pageUrl, function () {
+            //        $('#popupForm', $pageContent).removeData('validator');
+            //        $('#popupForm', $pageContent).removeData('unobtrusiveValidation');
+            //        $.validator.unobtrusive.parse('form');
 
-                });
+            //    });
 
-                $dialog = $('<div class="popupWindow" style="overflow:auto"></div>')
-                    .html($pageContent)
-                    .dialog({
-                        draggable: false,
-                        autoOpen: false,
-                        resizable: false,
-                        model: true,
-                        title: 'Popup Dialog',
-                        height: 550,
-                        width: 600,
-                        close: function () {
-                            $dialog.dialog('destroy').remove();
-                        }
-                    })
+            //    $dialog = $('<div class="popupWindow" style="overflow:auto"></div>')
+            //        .html($pageContent)
+            //        .dialog({
+            //            draggable: false,
+            //            autoOpen: false,
+            //            resizable: false,
+            //            model: true,
+            //            title: 'Popup Dialog',
+            //            height: 550,
+            //            width: 600,
+            //            close: function () {
+            //                $dialog.dialog('destroy').remove();
+            //            }
+            //        })
 
-                $('.popupWindow').on('submit', '#popupForm', function (e) {
-                    var url = $('#popupForm')[0].action;
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: $('#popupForm').serialize(),
-                        success: function (data) {
-                            if (data.status) {
-                                $dialog.dialog('close');
-                                oTable.ajax.reload();
-                            }
-                        }
-                    })
+            //    $('.popupWindow').on('submit', '#popupForm', function (e) {
+            //        var url = $('#popupForm')[0].action;
+            //        $.ajax({
+            //            type: "POST",
+            //            url: url,
+            //            data: $('#popupForm').serialize(),
+            //            success: function (data) {
+            //                if (data.status) {
+            //                    $dialog.dialog('close');
+            //                    oTable.ajax.reload();
+            //                }
+            //            }
+            //        })
 
-                    e.preventDefault();
-                })
-                $dialog.dialog('open');
-            }
+            //        e.preventDefault();
+            //    })
+            //    $dialog.dialog('open');
+            //}
         });
     </script>
 }
