@@ -364,6 +364,7 @@
     <Content Include="Views\Home\addEmployees.cshtml" />
     <Content Include="Views\Home\update_info.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Home\Display_moreinfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,5 @@
 ﻿using demo.Model;
-using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
@@ -17,8 +17,9 @@ namespace demo.Controllers
         {
             return View();
         }
-        public ActionResult addEmployees()
+        public ActionResult addEmployees(Employe_de id)
         {
+
             return View();
         }
         [HttpPost]
@@ -35,12 +36,12 @@ namespace demo.Controllers
 
             ModelState.Clear();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Display");
         }
 
         public ActionResult Display()
         {
-            var res = obj.Employe_de.ToList();
+           
             return View();
         }
 
@@ -49,10 +50,7 @@ namespace demo.Controllers
             var dis = obj.Employe_de.ToList<Employe_de>();
             return Json(new { data = dis }, JsonRequestBehavior.AllowGet);
         }
-       public ActionResult update_info()
-        {
-            return View();
-        }
+      
 
         public ActionResult Delete(int id)
         {
@@ -71,12 +69,45 @@ namespace demo.Controllers
         [HttpPost]
         public ActionResult Delete_item(int id)
         {
-            var res = obj.Employe_de.Where(x => x.ID == id).First();
+            var res = obj.Employe_de.Where(x => x.ID == id).FirstOrDefault();
             obj.Employe_de.Remove(res);
             obj.SaveChanges();
             ViewBag.Messsage = "Record Delete Successfully";
             //var res = obj.Employe_de.ToList();
             return RedirectToAction("Display");
+        }
+
+        public ActionResult update_info(int id)
+        {
+            var item = obj.Employe_de.Where(a => a.ID == id).FirstOrDefault();
+            if (item != null)
+            {
+                return View(item);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+        }
+        [HttpPost]
+        public ActionResult update_from(Employe_de emp)
+        {
+            obj.Entry(emp).State =EntityState.Modified;
+            obj.SaveChanges();
+            return RedirectToAction("Display");
+        }
+
+        public ActionResult Display_moreinfo(int id)
+        {
+            var item = obj.Employe_de.Where(a => a.ID == id).FirstOrDefault();
+            if (item != null)
+            {
+                return View(item);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
     }
 }
