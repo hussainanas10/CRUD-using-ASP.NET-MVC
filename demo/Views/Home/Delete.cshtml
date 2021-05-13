@@ -4,15 +4,22 @@
 @{
     Layout = null;
 }
+<h5 class="text-black text-center">Delete User </h5>
 
-<h2 class="bg-danger">DELETE INFORMATION </h2>
 @using (Html.BeginForm("Delete_item", "home", FormMethod.Post, new { id = "popupForm" }))
 {
     @Html.HiddenFor(a => a.ID)
-<div>
-    <p>do u want to delete this details</p>
-</div>
-    <div>
-        <input type="submit" value="Delete" />
+
+    <div class="modal-content">
+        <div class="modal-body">
+            <p>Are you sure you want to delete this user.</p>
+        </div>
+        <br />
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a type="button" class="btn btn-secondary " href="https://localhost:44317/Home/Display">Close</a>
+        </div>
+       
     </div>
-}
+
+    }

@@ -29,18 +29,16 @@
                 <li class="nav-item active">
                     @Html.ActionLink("Display", "Display", "Home", new { area = "" }, new { @class = "nav-link text-white" })
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Pricing</a>
-                </li>
+
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <div class="container ">
         @RenderBody()
 
-    </div>
 
-    <footer class="container card-footer fixed-bottom">
+    </div>
+    <footer class="container card-footer sticky-bottom mt-4">
 
         <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
     </footer>
