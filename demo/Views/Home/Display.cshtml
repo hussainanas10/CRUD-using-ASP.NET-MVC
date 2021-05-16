@@ -21,7 +21,9 @@
 
 
 @section Scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script>
+        
         
         $(document).ready(function () {
             $('#myTable').DataTable({
@@ -70,16 +72,15 @@
                 $dialog = $('<div ></div>')
                     .html($pageContent)
                     .dialog({
-                        draggable: true,
+                        draggable: false,
                         autoOpen: false,
                         resizable: false,
-                        position:'fixed',
+                        
                         model: true,
                         title: 'Popup Dialog',
-                        height: 'auto',
-                        width: 'auto',
-                        top: '0',
-                       /* left:'auto',*/
+                        height: 550,
+                        width: 600,
+                        
                         close: function () {
                             $dialog.dialog('destroy').remove();
                         }

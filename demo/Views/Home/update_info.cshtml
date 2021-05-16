@@ -6,7 +6,7 @@
 @{
     Layout = null;
 }
-@using (Html.BeginForm("update_from", "Home", FormMethod.Post ,new { id = "popupForm" }))
+@using (Html.BeginForm("update_from", "Home", FormMethod.Post, new { id = "popupForm" }))
 {
     <div class="container mt-4">
         <h1 class="display-4 text-center">
@@ -17,23 +17,23 @@
             <div class="form - group">
                 <label for="EmployeeID">EmployeeID</label>
                 @*@Html.TextBoxFor(x=>x.EmployeeID,new { @class= "form - group" })*@
-                <input type="text" name="EmployeID" value="@Model.EmployeID" class="form-control">
+                <input type="number" name="EmployeID" value="@Model.EmployeID" class="form-control" required />
             </div>
             <div class="form-group">
                 <label for="Name">Name</label>
-                <input type="text" name="Name" value="@Model.Name" class="form-control">
+                <input type="text" name="Name" value="@Model.Name" class="form-control" required />
                 @*@Html.TextBoxFor(x => x.Name, new { @class = "form - group" })*@
 
             </div>
             <div class="form-group">
                 <label for="Salary">Salary</label>
-                <input type="text" name="Salary" value="@Model.Salary" class="form-control">
+                <input type="number" name="Salary" value="@Model.Salary" class="form-control" required />
                 @*@Html.TextBoxFor(x => x.Salary, new { @class = "form - group" })*@
 
             </div>
             <div class="form-group">
                 <label for="Grade">Grade</label>
-                <input type="text" name="Grade" value="@Model.Grade" class="form-control">
+                <input type="text" name="Grade" value="@Model.Grade" class="form-control" required>
                 @*@Html.TextBoxFor(x => x.Grade, new { @class = "form - group" })*@
 
             </div>

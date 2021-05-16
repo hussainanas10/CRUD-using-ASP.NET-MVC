@@ -5,6 +5,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using demo.Extensions;
 
 namespace demo.Controllers
 {
@@ -19,7 +20,7 @@ namespace demo.Controllers
         }
         public ActionResult addEmployees(Employe_de id)
         {
-
+            
             return View();
         }
         [HttpPost]
@@ -33,9 +34,10 @@ namespace demo.Controllers
 
             obj.Employe_de.Add(data);
             obj.SaveChanges();
-
+            //if
+            //   ( model.Grade.Length>1)
             ModelState.Clear();
-
+            this.Flash("Data added ", NotificationType.SUCCESS);
             return RedirectToAction("Display");
         }
 
@@ -72,7 +74,8 @@ namespace demo.Controllers
             var res = obj.Employe_de.Where(x => x.ID == id).FirstOrDefault();
             obj.Employe_de.Remove(res);
             obj.SaveChanges();
-            ViewBag.Messsage = "Record Delete Successfully";
+            this.Flash("Record Delete Successfully", NotificationType.SUCCESS);
+            
             //var res = obj.Employe_de.ToList();
             return RedirectToAction("Display");
         }
@@ -94,6 +97,7 @@ namespace demo.Controllers
         {
             obj.Entry(emp).State =EntityState.Modified;
             obj.SaveChanges();
+            this.Flash(emp.Name+"'s Details Updated Successfully ", NotificationType.SUCCESS);
             return RedirectToAction("Display");
         }
 
