@@ -1,10 +1,12 @@
 ﻿using demo.Model;
+using System;
 using System.Data.Entity;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System;
 using demo.Extensions;
 
 namespace demo.Controllers
@@ -95,10 +97,20 @@ namespace demo.Controllers
         [HttpPost]
         public ActionResult update_from(Employe_de emp)
         {
-            obj.Entry(emp).State =EntityState.Modified;
-            obj.SaveChanges();
-            this.Flash(emp.Name+"'s Details Updated Successfully ", NotificationType.SUCCESS);
-            return RedirectToAction("Display");
+            if(emp.Grade.Length>1)
+
+            { this.Flash("grade must be single char", NotificationType.WARNING); }
+            
+                if (ModelState.IsValid) {
+               
+                obj.Entry(emp).State = EntityState.Modified;
+
+                obj.SaveChanges();
+                this.Flash(emp.Name + "'s Details Updated Successfully ", NotificationType.SUCCESS);
+                return RedirectToAction("Display");
+
+            }
+            return RedirectToAction("Index");
         }
 
         public ActionResult Display_moreinfo(int id)
