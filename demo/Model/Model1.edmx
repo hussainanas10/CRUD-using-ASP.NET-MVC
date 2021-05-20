@@ -5,7 +5,7 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="STUDENTSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Employe_de">
+        <EntityType Name="Employede">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -13,17 +13,18 @@
           <Property Name="EmployeID" Type="int" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="Salary" Type="int" />
-          <Property Name="Grade" Type="nchar" MaxLength="3" />
+          <Property Name="Grade" Type="nchar" MaxLength="50" />
+          <Property Name="InDtTm" Type="datetime" />
         </EntityType>
         <EntityContainer Name="STUDENTSModelStoreContainer">
-          <EntitySet Name="Employe_de" EntityType="Self.Employe_de" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employede" EntityType="Self.Employede" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="STUDENTSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Employe_de">
+        <EntityType Name="Employede">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -31,25 +32,27 @@
           <Property Name="EmployeID" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Salary" Type="Int32" />
-          <Property Name="Grade" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="InDtTm" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityContainer Name="STUDENTSEntities2" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Employe_de" EntityType="Self.Employe_de" />
+        <EntityContainer Name="STUDENTSEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employedes" EntityType="Self.Employede" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="STUDENTSModelStoreContainer" CdmEntityContainer="STUDENTSEntities2">
-          <EntitySetMapping Name="Employe_de">
-            <EntityTypeMapping TypeName="STUDENTSModel.Employe_de">
-              <MappingFragment StoreEntitySet="Employe_de">
+        <EntityContainerMapping StorageEntityContainer="STUDENTSModelStoreContainer" CdmEntityContainer="STUDENTSEntities3">
+          <EntitySetMapping Name="Employedes">
+            <EntityTypeMapping TypeName="STUDENTSModel.Employede">
+              <MappingFragment StoreEntitySet="Employede">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="EmployeID" ColumnName="EmployeID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Salary" ColumnName="Salary" />
                 <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="InDtTm" ColumnName="InDtTm" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

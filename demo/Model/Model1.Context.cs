@@ -13,10 +13,10 @@ namespace demo.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class STUDENTSEntities2 : DbContext
+    public partial class STUDENTSEntities3 : DbContext
     {
-        public STUDENTSEntities2()
-            : base("name=STUDENTSEntities2")
+        public STUDENTSEntities3()
+            : base("name=STUDENTSEntities3")
         {
         }
     
@@ -25,6 +25,6 @@ namespace demo.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Employe_de> Employe_de { get; set; }
+        public virtual DbSet<Employede> Employedes { get; set; }
     }
 }

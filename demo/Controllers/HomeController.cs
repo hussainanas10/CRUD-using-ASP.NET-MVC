@@ -6,35 +6,34 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System;
 using demo.Extensions;
 
 namespace demo.Controllers
 {
     public class HomeController : Controller
     {
-        STUDENTSEntities2 obj = new STUDENTSEntities2();
+        STUDENTSEntities3 obj= new STUDENTSEntities3();
 
 
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult addEmployees(Employe_de id)
+        public ActionResult addEmployees(Employede id)
         {
             
             return View();
         }
         [HttpPost]
-        public ActionResult AddEmployee(Employe_de model)
+        public ActionResult AddEmployee(Employede model)
         {
-            Employe_de data = new Employe_de();
+            Employede data = new Employede();
             data.EmployeID = model.EmployeID;
             data.Name = model.Name;
             data.Salary = model.Salary;
             data.Grade = model.Grade;
 
-            obj.Employe_de.Add(data);
+            obj.Employedes.Add(data);
             obj.SaveChanges();
             //if
             //   ( model.Grade.Length>1)
@@ -51,14 +50,14 @@ namespace demo.Controllers
 
         public ActionResult newdisplay()
         {
-            var dis = obj.Employe_de.ToList<Employe_de>();
+            var dis = obj.Employedes.ToList<Employede>();
             return Json(new { data = dis }, JsonRequestBehavior.AllowGet);
         }
       
 
         public ActionResult Delete(int id)
         {
-            var item = obj.Employe_de.Where(a => a.ID == id).FirstOrDefault();
+            var item = obj.Employedes.Where(a => a.ID == id).FirstOrDefault();
             if (item != null)
             {
                 return View(item);
@@ -73,18 +72,18 @@ namespace demo.Controllers
         [HttpPost]
         public ActionResult Delete_item(int id)
         {
-            var res = obj.Employe_de.Where(x => x.ID == id).FirstOrDefault();
-            obj.Employe_de.Remove(res);
+            var res = obj.Employedes.Where(x => x.ID == id).FirstOrDefault();
+            obj.Employedes.Remove(res);
             obj.SaveChanges();
             this.Flash("Record Delete Successfully", NotificationType.SUCCESS);
             
-            //var res = obj.Employe_de.ToList();
+            //var res = obj.Employede.ToList();
             return RedirectToAction("Display");
         }
 
         public ActionResult update_info(int id)
         {
-            var item = obj.Employe_de.Where(a => a.ID == id).FirstOrDefault();
+            var item = obj.Employedes.Where(a => a.ID == id).FirstOrDefault();
             if (item != null)
             {
                 return View(item);
@@ -95,7 +94,7 @@ namespace demo.Controllers
             }
         }
         [HttpPost]
-        public ActionResult update_from(Employe_de emp)
+        public ActionResult update_from(Employede emp)
         {
             if(emp.Grade.Length>1)
 
@@ -115,7 +114,7 @@ namespace demo.Controllers
 
         public ActionResult Display_moreinfo(int id)
         {
-            var item = obj.Employe_de.Where(a => a.ID == id).FirstOrDefault();
+            var item = obj.Employedes.Where(a => a.ID == id).FirstOrDefault();
             if (item != null)
             {
                 return View(item);

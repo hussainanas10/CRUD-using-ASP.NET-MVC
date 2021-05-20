@@ -12,12 +12,13 @@ namespace demo.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Employe_de
+    public partial class Employede
     {
         public int ID { get; set; }
         public Nullable<int> EmployeID { get; set; }
         public string Name { get; set; }
         public Nullable<int> Salary { get; set; }
         public string Grade { get; set; }
+        public Nullable<System.DateTime> InDtTm { get; set; }
     }
 }
