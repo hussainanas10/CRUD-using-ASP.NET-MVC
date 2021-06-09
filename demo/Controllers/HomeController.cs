@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using demo.Extensions;
+using PagedList;
 
 namespace demo.Controllers
 {
@@ -19,6 +20,8 @@ namespace demo.Controllers
         {
             return View();
         }
+        
+        //add emp
         public ActionResult addEmployees(Employede id)
         {
             
@@ -41,10 +44,11 @@ namespace demo.Controllers
             this.Flash("Data added ", NotificationType.SUCCESS);
             return RedirectToAction("Display");
         }
-
+        
+        //display info
         public ActionResult Display()
         {
-           
+
             return View();
         }
 
@@ -54,7 +58,7 @@ namespace demo.Controllers
             return Json(new { data = dis }, JsonRequestBehavior.AllowGet);
         }
       
-
+        //delete
         public ActionResult Delete(int id)
         {
             var item = obj.Employedes.Where(a => a.ID == id).FirstOrDefault();
@@ -80,7 +84,8 @@ namespace demo.Controllers
             //var res = obj.Employede.ToList();
             return RedirectToAction("Display");
         }
-
+        
+        //edit
         public ActionResult update_info(int id)
         {
             var item = obj.Employedes.Where(a => a.ID == id).FirstOrDefault();
@@ -112,6 +117,7 @@ namespace demo.Controllers
             return RedirectToAction("Index");
         }
 
+        //single employe view
         public ActionResult Display_moreinfo(int id)
         {
             var item = obj.Employedes.Where(a => a.ID == id).FirstOrDefault();
@@ -124,5 +130,10 @@ namespace demo.Controllers
                 return HttpNotFound();
             }
         }
+
+       
+
+       
+
     }
 }

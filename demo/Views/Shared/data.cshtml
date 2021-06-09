@@ -1,0 +1,9 @@
+﻿@model demo.Model.Employede
+<tr>
+    <td>@Model.EmployeID</td>
+    <td>@Model.Name</td>
+    <td>@Model.Salary</td>
+    <td>@Model.Grade</td>
+    <td><a href="@Url.Action("Delete")/@Model.ID" type="button" class="btn btn-danger">Delete</a> <a href="@Url.Action("update_from")/@Model.ID" type="button" class="btn btn-success">Edit</a></td>
+</tr>
+

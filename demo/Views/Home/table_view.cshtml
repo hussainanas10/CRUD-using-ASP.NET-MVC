@@ -1,0 +1,83 @@
+﻿@using PagedList;
+@model IEnumerable<demo.Model.Employede>
+@{
+    ViewBag.Title = "table_view";
+}
+<div class="container pt-2  ">
+    <form action="@Url.Action("Search")" method="get">
+        <div class="input-group rounded justify-content-center pb-2">
+            <input type="text" class="rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <button class="input-group-text border-0 bg-white " type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </form>
+
+    <table id="dowexcel" class="table table-bordered excludeThisClass ">
+        <thead class="table-dark">
+            <tr>
+                <th>EmployeeID</th>
+                <th>Employee Name</th>
+                <th>salary</th>
+                <th>grade</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="showdata">
+            @if (Model != null )
+            {
+                foreach (var item in Model)
+                {
+                    { Html.RenderPartial("data", item); }
+                }
+            }
+            else
+            {
+                <tr>NO item found</tr> 
+            }
+            </tbody>
+    </table>
+    <a class="btn btn-info" type="button" id="down">Download Excel</a>
+</div>
+@section Scripts{
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+    @*<link href="~/Content/PagedList.css" rel="stylesheet" />
+        <script src="~/Scripts/Paging.js"></script>*@/
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#showdata tr:not('.no-records')").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+                var trSel = $("#showdata tr:not('.no-records'):visible")
+                // Check for number of rows & append no records found row
+                if (trSel.length == 0) {
+                    $("#showdata").html('<tr class="no-records"><td colspan="5" >No record found.</td></tr>')
+                }
+                else {
+                    $('.no-records').remove
+                }
+            });
+
+            $("#down").click(function () {
+                $("#dowexcel").table2excel({
+                    exclude: ".excludeThisClass",
+                    name: "Employees",
+                    filename: "Employees", //do not include extension
+                    fileext: ".xls", // file extension
+                    preserveColors: true
+
+                });
+            });
+
+
+
+
+            //$('.tbldata').paging({ limit: 5 });
+
+        });
+
+    </script>
+}
